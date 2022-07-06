@@ -1,0 +1,24 @@
+{
+  "name": "sfcc-data-export",
+  "version": "1.0.0",
+  "description": "SFCC Data Export",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "export": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillaumebrunier/sfcc-data-export.git"
+  },
+  "author": "Guillaume BRUNIER",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guillaumebrunier/sfcc-data-export/issues"
+  },
+  "homepage": "https://github.com/guillaumebrunier/sfcc-data-export#readme",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "sfcc-ci": "^2.9.1"
+  }
+}
