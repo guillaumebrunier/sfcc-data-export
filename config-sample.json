@@ -5,18 +5,19 @@
     "exports": {
         "sampleId1" : {
             "parameters" : {
-                "__comment": "See documentation for the json structure : https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIDocuments.html"
+                "export_file": "SAMPLE_METADATA",
+                "overwrite_export_file": true,
+                "data_units": {
+                    "global_data": {
+                        "meta_data": true
+                    }
+                }
             }
         },
         "sampleId2" : {
             "hostname": "Specific instance hostname",
             "clientId": "Specific OCAPI client ID",
             "clientPassword": "Specific OCAPI client password",
-            "parameters" : {
-                "__comment": "See documentation for the json structure : https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIDocuments.html"
-            }
-        },
-        "sampleId3" : {
             "parameters" : {
                 "export_file": "SAMPLE_METADATA",
                 "overwrite_export_file": true,

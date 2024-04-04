@@ -59,18 +59,19 @@ You have to create the *config.json* file. You can start from the *config-sample
     "exports": {
         "sampleId1" : {
             "parameters" : {
-                "__comment": "See documentation for the json structure : https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIDocuments.html"
+                "export_file": "SAMPLE_METADATA",
+                "overwrite_export_file": true,
+                "data_units": {
+                    "global_data": {
+                        "meta_data": true
+                    }
+                }
             }
         },
         "sampleId2" : {
             "hostname": "Specific instance hostname",
             "clientId": "Specific OCAPI client ID",
             "clientPassword": "Specific OCAPI client password",
-            "parameters" : {
-                "__comment": "See documentation for the json structure : https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIDocuments.html"
-            }
-        },
-        "sampleId3" : {
             "parameters" : {
                 "export_file": "SAMPLE_METADATA",
                 "overwrite_export_file": true,
@@ -84,6 +85,99 @@ You have to create the *config.json* file. You can start from the *config-sample
     }
 }
 ```
+
+The `data_units` structure :
+```json
+{
+    "sites": {
+        "siteDEMO": {
+            "active_data_feeds": true,
+            "cache_settings": true,
+            "campaigns_and_promotions": true,
+            "content": true,
+            "coupons": true,
+            "customer_cdn_settings": true,
+            "customer_groups": true,
+            "custom_objects": true,
+            "dynamic_file_resources": true,
+            "distributed_commerce_extensions": true,
+            "ocapi_settings": true,
+            "payment_methods": true,
+            "payment_processors": true,
+            "redirect_urls": true,
+            "search_settings": true,
+            "shipping": true,
+            "site_descriptor": true,
+            "site_preferences": true,
+            "static_dynamic_alias_mappings": true,
+            "sitemap_settings": true,
+            "slots": true,
+            "sorting_rules": true,
+            "source_codes": true,
+            "stores": true,
+            "tax": true,
+            "url_rules": true,
+            "gift_certificates": true
+        },
+        "otherSiteDEMO": {
+            "all": true
+        }
+    },
+    "libraries": {
+        "libDEMO": true
+    },
+    "library_static_resources": {
+        "siteDEMO": true,
+        "sharedLibraryDemo": true
+    },
+    "catalogs": {
+        "catalogDEMO": true
+    },
+    "catalog_static_resources": {
+        "catalogStaticResDEMO": true
+    },
+    "price_books": {
+        "pricebookDEMO": true
+    },
+    "inventory_lists": {
+        "all": true
+    },
+    "customer_lists": {
+        "siteDEMO": true
+    },
+    "assignments": {
+        "assignmentDEMO": true
+    },
+    "global_data": {
+        "preferences": true,
+        "global_custom_objects": true,
+        "job_schedules": true,
+        "job_schedules_deprecated": true,
+        "meta_data": true,
+        "static_resources": true,
+        "users": true,
+        "access_roles": true,
+        "geolocations": true,
+        "custom_quota_settings": true,
+        "oauth_providers": true,
+        "ocapi_settings": true,
+        "webdav_client_permissions": true,
+        "services": true,
+        "csc_settings": true,
+        "page_meta_tags": true,
+        "price_adjustment_limits": true,
+        "csrf_whitelists": true,
+        "sorting_rules": true,
+        "system_type_definitions": true,
+        "custom_types": true,
+        "custom_preference_groups": true
+    }
+}
+```
+
+For more informations :
+* https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/globaljobs.html#site-archive-export
+* https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/jobstepapi/html/index.html
 
 ## Run an export
 
@@ -101,10 +195,10 @@ npm run export sampleId1
 ```
 
 ```bash
-# Run the export for sampleId3 configuration
+# Run the export for sampleId1 configuration
 # Override the archive name SAMPLE_DATA with OVERRIDE_SAMPLE_METADATA
 
-npm run export sampleId3 OVERRIDE_SAMPLE_METADATA
+npm run export sampleId1 OVERRIDE_SAMPLE_METADATA
 ```
 
 ## Get the archive file
